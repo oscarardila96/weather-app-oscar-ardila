@@ -4,7 +4,7 @@ import useWeather from '../hooks/useWeather';
 
 const Card = () => {
 
-  const { weather, degrees, loading, celsius, changeDegrees, refreshWeather } = useWeather();
+  const { weather, degrees, loading, celsius, time, date, changeDegrees, refreshWeather } = useWeather();
 
   return (
     <>
@@ -22,6 +22,7 @@ const Card = () => {
             <img src={`http://openweathermap.org/img/wn/${weather.weather?.[0]?.icon}@2x.png`} alt="weather icon" />
           </div>
           <h2 className="fancy-line">{weather.name}, {weather.sys?.country}.</h2>
+          <h3>{date} - {time} </h3>
           <div className="weather">
             <div className="condition">
               <h2 className="fancy-line">Conditions</h2>

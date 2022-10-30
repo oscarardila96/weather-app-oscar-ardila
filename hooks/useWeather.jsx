@@ -18,9 +18,10 @@ const useWeather = () => {
 
   useEffect(() => {
     const success = pos => {
+      const apiKey = "1c93453002fb626d1b21434b8f4f94c4"
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=1c93453002fb626d1b21434b8f4f94c4`).then(res => setWeather(res.data));
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(res => setWeather(res.data));
     }
 
     const error = () => alert("error");
@@ -45,7 +46,11 @@ const useWeather = () => {
     setRefresh(!refresh)
   }
 
-  return { weather, degrees, refresh, loading, celsius, changeDegrees, refreshWeather }
+  const currentTime = Date.now();
+  const time = new Date(currentTime).toLocaleTimeString();
+  const date = new Date(currentTime).toDateString();
+
+  return { weather, degrees, refresh, loading, celsius, time, date, changeDegrees, refreshWeather }
 }
 
 export default useWeather;
