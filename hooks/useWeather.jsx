@@ -4,18 +4,17 @@ import axios from 'axios';
 
 const useWeather = () => {
 
-  const [weather, setWeather] = useState({})
+  const [weather, setWeather] = useState({});
   const [degrees, setDegrees] = useState(true);
-  const [refresh, setRefresh] = useState(true);
   const [loading, setLoading] = useState(true);
-  const [curTime, setCurTime] = useState({})
+  const [curTime, setCurTime] = useState({});
 
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
     }, 2000);
-  }, [refresh])
+  }, [])
 
   useEffect(() => {
     const success = pos => {
@@ -43,10 +42,6 @@ const useWeather = () => {
     setDegrees(!degrees)
   }
 
-  const refreshWeather = () => {
-    setRefresh(!refresh)
-  }
-
   const showTime = () => {
     setCurTime(!curTime)
   }
@@ -57,7 +52,7 @@ const useWeather = () => {
   const time = new Date(currentTime).toLocaleTimeString();
   const date = new Date(currentTime).toDateString();
 
-  return { weather, degrees, refresh, loading, celsius, time, date, changeDegrees, refreshWeather }
+  return { weather, degrees, loading, celsius, time, date, changeDegrees }
 }
 
 export default useWeather;

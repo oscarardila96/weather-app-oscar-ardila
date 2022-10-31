@@ -4,7 +4,7 @@ import useWeather from '../hooks/useWeather';
 
 const Card = () => {
 
-  const { weather, degrees, loading, celsius, time, date, changeDegrees, refreshWeather } = useWeather();
+  const { weather, degrees, loading, celsius, time, date, changeDegrees } = useWeather();
 
   return (
     <>
@@ -43,7 +43,6 @@ const Card = () => {
           </div>
           <div className="buttons">
             <button onClick={changeDegrees} style={{ color: time < "18:00:00 PM" & time > "6:00:00 AM" ? `black` : `white`, border: time < "18:00:00 PM" & time > "6:00:00 AM" ? `1px solid black` : `3px solid white` }}>{degrees ? "Get Farenheit" : "Get Celsius"} </button>
-            <button onClick={refreshWeather} style={{ color: (time < "18:00:00 PM" & time > "6:00:00 AM") ? `black` : `white`, border: time < "18:00:00 PM" & time > "6:00:00 AM" ? `1px solid black` : `3px solid white` }}>Refresh</button>
           </div>
         </div>
       }
