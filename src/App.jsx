@@ -8,7 +8,7 @@ function App() {
   const { time } = useWeather();
 
   return (
-    <div className="App" style={{ backgroundImage: (time < "18:00:00 PM" & time > "6:00:00 AM") ? `url(${skyDay})` : `url(${skyNight})`, color: (time < "18:00:00 PM" & time > "6:00:00 AM") ? `black` : `white` }}>
+    <div className="App">
       <Card />
     </div>
   )

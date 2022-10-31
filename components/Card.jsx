@@ -10,7 +10,7 @@ const Card = () => {
     <>
       {loading ?
         <CircleLoader
-          color={time < "18:00:00 PM" & time > "6:00:00 AM" ? `black` : `white`}
+          color="black"
           loading={loading}
           size={100}
           aria-label="Loading Spinner"
@@ -42,7 +42,7 @@ const Card = () => {
             </div>
           </div>
           <div className="buttons">
-            <button onClick={changeDegrees} style={{ color: time < "18:00:00 PM" & time > "6:00:00 AM" ? `black` : `white`, border: time < "18:00:00 PM" & time > "6:00:00 AM" ? `1px solid black` : `3px solid white` }}>{degrees ? "Get Farenheit" : "Get Celsius"} </button>
+            <button onClick={changeDegrees}>{degrees ? "Get Farenheit" : "Get Celsius"} </button>
           </div>
         </div>
       }

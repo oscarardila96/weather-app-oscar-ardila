@@ -25,6 +25,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url(./assets/skyDay.jpg);
 }
 
 .cardCont {
@@ -43,7 +44,7 @@ html {
 
 .cardCont:hover {
   backdrop-filter: blur(80px);
-  border: 5px dotted white;
+  border: 5px dotted black;
   transform: scaleX (1);
   transition: all 0.2s ease-in;
 }
