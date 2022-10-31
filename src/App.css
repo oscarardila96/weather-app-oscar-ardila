@@ -1,7 +1,15 @@
+:root {
+  --black: black;
+  --white: white;
+}
+
+
+
 html {
   box-sizing: content-box;
   font-family: 'Yanone Kaffeesatz', sans-serif;
   font-size: 22px;
+  font-weight: 700;
 }
 
 *,
@@ -17,7 +25,6 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-image: url(./assets/sky-day.jpg);
 }
 
 .cardCont {
@@ -36,7 +43,7 @@ html {
 
 .cardCont:hover {
   backdrop-filter: blur(80px);
-  border: 5px dotted black;
+  border: 5px dotted white;
   transform: scaleX (1);
   transition: all 0.2s ease-in;
 }
@@ -75,16 +82,26 @@ h1 {
   text-align: center;
 }
 
+.buttons {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+
 button {
   width: 150px;
   background-color: transparent;
-  color: black;
   padding: 10px;
   border-radius: 15px;
   font-size: 15px;
+  font-weight: 700;
   cursor: pointer;
   transform: scale(1);
   transition: all 0.4s ease-in;
+
+
 }
 
 button:hover {
@@ -115,12 +132,6 @@ button:hover {
   transform-origin: left;
 }
 
-.buttons {
-  width: 80%;
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-}
 
 @media (max-width: 850px) {
   .cardCont {

@@ -10,7 +10,7 @@ const Card = () => {
     <>
       {loading ?
         <CircleLoader
-          color={"#070808"}
+          color={time < "18:00:00 PM" & time > "6:00:00 AM" ? `black` : `white`}
           loading={loading}
           size={100}
           aria-label="Loading Spinner"
@@ -22,7 +22,7 @@ const Card = () => {
             <img src={`http://openweathermap.org/img/wn/${weather.weather?.[0]?.icon}@2x.png`} alt="weather icon" />
           </div>
           <h2 className="fancy-line">{weather.name}, {weather.sys?.country}.</h2>
-          <h3>{date} - {time} </h3>
+          <h3 className="fancy-line">{date} - {time} </h3>
           <div className="weather">
             <div className="condition">
               <h2 className="fancy-line">Conditions</h2>
@@ -42,8 +42,8 @@ const Card = () => {
             </div>
           </div>
           <div className="buttons">
-            <button onClick={changeDegrees}>{degrees ? "Get Farenheit" : "Get Celsius"}</button>
-            <button onClick={refreshWeather}>Refresh</button>
+            <button onClick={changeDegrees} style={{ color: time < "18:00:00 PM" & time > "6:00:00 AM" ? `black` : `white`, border: time < "18:00:00 PM" & time > "6:00:00 AM" ? `1px solid black` : `3px solid white` }}>{degrees ? "Get Farenheit" : "Get Celsius"} </button>
+            <button onClick={refreshWeather} style={{ color: (time < "18:00:00 PM" & time > "6:00:00 AM") ? `black` : `white`, border: time < "18:00:00 PM" & time > "6:00:00 AM" ? `1px solid black` : `3px solid white` }}>Refresh</button>
           </div>
         </div>
       }

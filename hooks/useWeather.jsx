@@ -8,6 +8,7 @@ const useWeather = () => {
   const [degrees, setDegrees] = useState(true);
   const [refresh, setRefresh] = useState(true);
   const [loading, setLoading] = useState(true);
+  const [curTime, setCurTime] = useState({})
 
   useEffect(() => {
     setLoading(true);
@@ -45,6 +46,12 @@ const useWeather = () => {
   const refreshWeather = () => {
     setRefresh(!refresh)
   }
+
+  const showTime = () => {
+    setCurTime(!curTime)
+  }
+
+  setInterval(showTime, 1000)
 
   const currentTime = Date.now();
   const time = new Date(currentTime).toLocaleTimeString();
