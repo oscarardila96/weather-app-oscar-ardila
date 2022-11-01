@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from 'axios';
 
-
 const useWeather = () => {
 
   const [weather, setWeather] = useState({});
@@ -10,18 +9,11 @@ const useWeather = () => {
   const [curTime, setCurTime] = useState({});
 
   useEffect(() => {
-    setLoading(true);
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, [])
-
-  useEffect(() => {
     const success = pos => {
       const apiKey = "1c93453002fb626d1b21434b8f4f94c4"
       const lat = pos.coords.latitude;
       const lon = pos.coords.longitude;
-      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(res => setWeather(res.data));
+      axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`).then(res => setWeather(res.data)).then(() => { setLoading(false) });
     }
 
     const error = () => alert("error");
